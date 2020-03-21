@@ -20,7 +20,7 @@ public class User implements UserDetails {
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
-    private Set<Role>  role;
+    private Set<Role> role;
 
     public Long getId() {
         return id;
@@ -60,7 +60,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getRole();
+        return getRoles();
     }
 
     public String getPassword() {
@@ -79,7 +79,7 @@ public class User implements UserDetails {
         this.active = active;
     }
 
-    public Set<Role> getRole() {
+    public Set<Role> getRoles() {
         return role;
     }
 

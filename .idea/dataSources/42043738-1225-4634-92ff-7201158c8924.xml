@@ -31,7 +31,7 @@
       <ObjectId>16421</ObjectId>
       <StateNumber>523</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>527</IntrospectionStateNumber>
+      <IntrospectionStateNumber>570</IntrospectionStateNumber>
       <Visible>1</Visible>
     </database>
     <role id="7" parent="1" name="pg_execute_server_program">
