@@ -48,6 +48,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- SPRING MAIL -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
         <!-- DataBase -->
         <dependency>
             <groupId>org.postgresql</groupId>

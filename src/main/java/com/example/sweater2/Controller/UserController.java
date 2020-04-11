@@ -16,10 +16,14 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/user")
-//@PreAuthorize("hasAuthority('ADMIN')")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class UserController {
-    @Autowired
-    private UserRepo userRepo;
+    private final UserRepo userRepo;
+
+    public UserController(UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
+
     @GetMapping
     public String userList(Model model){
         model.addAttribute("users",userRepo.findAll());
@@ -38,10 +42,13 @@ public class UserController {
             @RequestParam Map<String,String> form,
             @RequestParam("userId") User user){
         user.setUsername(username);
-        Set<String> roles = Arrays.stream(Role.values()).map(Role::name).collect(Collectors.toSet());
+        Set<String> roles = Arrays.stream(Role.values())
+                .map(Role::name)
+                .collect(Collectors.toSet());
+
         user.getRoles().clear();
-        for (String key: form.keySet()){
-            if(roles.contains(key)){
+        for (String key : form.keySet()) {
+            if (roles.contains(key)) {
                 user.getRoles().add(Role.valueOf(key));
             }
         }

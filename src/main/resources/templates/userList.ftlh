@@ -1,4 +1,4 @@
-<#import "parts/common.ftlh" as c>
+<#import "parts/main.ftlh" as c>
 <@c.page>
     List of Users
     <table>
